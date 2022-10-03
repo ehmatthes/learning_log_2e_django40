@@ -8,19 +8,16 @@ import requests
 
 print("\nTesting functionality of deployed app...")
 
-# --- Anonymous home page ---
-print("  Checking anonymous home page...")
-
-
 app_url = sys.argv[1]
 
 # Make sure app url has a trailing slash.
 if not app_url[-1] == '/':
     app_url += '/'
 
-print(app_url)
-sys.exit()
+print(f"  Test URL: {app_url}\n\n")
 
+# --- Anonymous home page ---
+print("  Checking anonymous home page...")
 r = requests.get(app_url)
 
 assert r.status_code == 200
